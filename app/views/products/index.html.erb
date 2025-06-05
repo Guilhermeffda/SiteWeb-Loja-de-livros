@@ -1,0 +1,58 @@
+
+
+<% content_for :title, "Products" %>
+
+<div class="w-full max-w-7xl mx-auto px-4">
+  <% if notice.present? %>
+    <p id="notice" class="py-2 px-4 mb-5 rounded-lg bg-green-100 text-green-700 font-medium">
+      <%= notice %>
+    </p>
+  <% end %>
+
+  <div class="flex justify-center items-center pb-8">
+    <h1 class="text-4xl font-bold text-gray-800">Products</h1>
+  </div>
+
+  <table id="products" class="w-full border-separate border-spacing-y-4">
+    <tfoot>
+      <tr>
+        <td colspan="3" class="text-center">
+          <div class="mt-8">
+            <%= link_to 'New product', new_product_path, class: "inline-block rounded-lg py-3 px-5 bg-green-600 text-white font-semibold hover:bg-green-700 transition" %>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <% @products.each do |product| %>
+        <tr class="<%= cycle('bg-green-50', 'bg-white') %> shadow-sm rounded-lg overflow-hidden">
+          <td class="px-4 py-4">
+            <%= image_tag(product.image_url, class: 'w-40 rounded') %>
+          </td>
+
+          <td class="px-4 py-4 align-top">
+            <h2 class="text-xl font-semibold text-gray-800 mb-2"><%= product.title %></h2>
+            <p class="text-gray-600">
+              <%= truncate(strip_tags(product.description), length: 80) %>
+            </p>
+          </td>
+
+          <td class="px-4 py-4 align-top">
+            <ul class="space-y-2">
+              <li>
+                <%= link_to 'Show', product, class: 'text-blue-600 hover:underline' %>
+              </li>
+              <li>
+                <%= link_to 'Edit', edit_product_path(product), class: 'text-yellow-600 hover:underline' %>
+              </li>
+              <li>
+                <%= link_to 'Destroy', product, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: 'text-red-600 hover:underline' %>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
