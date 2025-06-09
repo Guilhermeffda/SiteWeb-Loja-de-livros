@@ -1,5 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+# Esse arquivo contém dados de exemplo para o modelo Product.
+# Os dados são usados para testes e podem ser carregados no banco de dados.
+# Cada produto é definido por um identificador único (como one, two, ruby)
+# e contém atributos como título, descrição, URL da imagem e preço.
+
+
 one:
   title: MyString
   description: MyText
@@ -13,15 +19,11 @@ two:
   price: 9.99
 
 ruby:
-
   title:  Programming Ruby 1.9
-
   description:
     Ruby is the fastest growing and most exciting dynamic
     language out there. If you need to get working programs
     delivered fast, you should add Ruby to your toolbox.
-
   price:  49.50
-
   image_url:  ruby.jpg
 

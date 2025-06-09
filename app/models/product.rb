@@ -1,5 +1,9 @@
 
 
+# Esse arquivo define o modelo Product, que representa um produto em nossa aplicação.
+# Esse modelo inclui validações para garantir que os atributos do produto sejam preenchidos corretamente.
+# app/models/product.rb
+
 class Product < ApplicationRecord
 
     # O validates checa se os atributos estão preenchidos

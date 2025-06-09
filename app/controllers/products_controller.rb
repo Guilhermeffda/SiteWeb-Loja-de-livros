@@ -1,3 +1,9 @@
+
+
+# Este arquivo define o controlador ProductsController, que gerencia as ações relacionadas aos produtos.
+# As ações incluem listar, mostrar, criar, editar, atualizar e excluir produtos.
+# O controlador também define callbacks para configurar o produto antes de certas ações.
+
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
 
@@ -28,6 +34,7 @@ class ProductsController < ApplicationController
         format.html { redirect_to @product, notice: "Product was successfully created." }
         format.json { render :show, status: :created, location: @product }
       else
+        puts @product.errors.full_messages
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
