@@ -34,6 +34,7 @@ class Product < ApplicationRecord
     # Se estiver, impede a destruição do produto e lança um erro.   
     # Se não estiver referenciado, o produto pode ser destruído normalmente.
     private 
+    
         def ensure_not_referenced_by_nay_line_item
             unless line_items.empty?
                 errors.add(:base, 'Line iitems present')

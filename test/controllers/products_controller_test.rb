@@ -47,8 +47,8 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   # Aqui definimos que não podemos deletar um produto que esteja no carrinho
-  test "cant delete product in cart" do 
-    assert_diference("Product. count", 0) do
+  test "can't delete product in cart" do 
+    assert_difference("Product.count", 0) do
       delete product_url(products(:two))
     end
 
