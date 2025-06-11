@@ -48,7 +48,9 @@ class CartsController < ApplicationController
     end
   end
 
-  # DELETE /carts/1 or /carts/1.json
+  # Aqui do jeito que esta agora ele vai deletar o cart atual
+  # Fizemos isso pq sera usado de melhor forma no livro mais a frente...
+
   def destroy
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil 
@@ -73,8 +75,8 @@ class CartsController < ApplicationController
 
     # Essa função é chamada quando um cart inválido é acessado
     def invalid_cart
-      logger.error "Attempt to access invalid cart #{params[:id]}"
-      redirect_to store_index_url, notice: 'Invalid cart'
+    logger.error "Attempt to access invalid cart #{params[:id]}"
+    redirect_to store_index_url, notice: 'Invalid cart'
     end
 
 end
