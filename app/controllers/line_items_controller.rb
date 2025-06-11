@@ -67,7 +67,7 @@ class LineItemsController < ApplicationController
       @line_item = LineItem.find(params.expect(:id))
     end
 
-    # Only allow a list of trusted parameters through.
+    # Nos permite definir o carrinho atual
     def line_item_params
       params.require(:line_item).permit(:product_id)
     end
