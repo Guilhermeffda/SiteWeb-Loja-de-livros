@@ -90,3 +90,25 @@ img.object-contain {
 h2 {
   margin-top: 0;
 }
+
+/* Aumenta o espaçamento entre os itens da tabela */
+.cart-table tbody tr {
+  line-height: 2.2em;
+}
+
+/* Remover borda inferior dos preços unitários */
+.cart-table tbody td:last-child {
+  font-weight: 600;
+  padding-bottom: 2px;
+  white-space: nowrap;
+  border-bottom: none; /* <<< ESSENCIAL */
+}
+
+/* Deixar borda apenas no total */
+.cart-table tfoot td {
+  font-weight: bold;
+  border-top: 2px solid black;
+  padding-top: 8px;
+}
+
+

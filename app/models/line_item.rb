@@ -5,4 +5,10 @@
 class LineItem < ApplicationRecord
   belongs_to :product
   belongs_to :cart
+
+  # Aqui definimos um método para calcular o preço total do item de linha,
+  def total_price
+    product.price * quantity
+  end
+
 end
