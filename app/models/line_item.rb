@@ -3,8 +3,9 @@
 # Ela pertence a um produto e a um carrinho, estabelecendo as relações entre esses modelos.
 
 class LineItem < ApplicationRecord
+  belongs_to :order, optional: true
   belongs_to :product
-  belongs_to :cart
+  belongs_to :cart, optional: true
 
   # Aqui definimos um método para calcular o preço total do item de linha,
   def total_price
