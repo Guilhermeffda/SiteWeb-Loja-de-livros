@@ -33,6 +33,7 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
+        ChargeOrderJob.perform_later(@order,pay_type_params.to_h)
         format.html { redirect_to store_index_url, notice: 
           'Thank you for your order'}
         format.json { render :show, status: :created, location: @order }
@@ -63,6 +64,23 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to orders_path, status: :see_other, notice: "Order was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  # Aqui vai ser feito tres coisas
+    # Primeiro,vai adaptar os pay_type_params que você acabou de criar aos parâmetros que o Pago
+    # Segundo, faz um chamado para o Pago para coletar o pagamento
+    # Por ultimo, vai checar se o pagamento nao teve problemas, e vai mandar um email de confirmação, mas só se nn houver erros
+
+  def pay_type_params
+    if order_params[:pay_type] == "Credit card"
+      params.require(:order).permit(:credit_card_number, :expiration_date)
+    elsif order_params[:pay_type] == "Check"
+      params.require(:order).permit(:routing_number, :account_number)
+    elsif order_params[:pay_type] == "Purchase order"
+      params.require(:order).permit(:po_number)
+    else
+      {}
     end
   end
 
