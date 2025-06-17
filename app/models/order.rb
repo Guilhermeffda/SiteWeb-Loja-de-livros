@@ -1,6 +1,6 @@
 
 require 'active_model/serializers/xml'
-require 'pago'
+require Rails.root.join('lib', 'tasks', 'pago')
 
 class Order < ApplicationRecord
     has_many :line_items, dependent: :destroy
@@ -48,7 +48,7 @@ class Order < ApplicationRecord
         end
 
         # Aqui realiza o pagamento conforme o ID da compra
-        payment_result = Pago.make_payment(
+        payment_result = ::Pago.make_payment(
             order_id: id,
             payment_method: payment_method,
             payment_details: payment_details

@@ -1,5 +1,4 @@
 
-
 require 'ostruct'
 
 class Pago
