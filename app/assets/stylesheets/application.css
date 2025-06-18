@@ -110,4 +110,41 @@ h2 {
   padding-top: 8px;
 }
 
+/* ...código existente... */
 
+/* Apenas campos digitáveis destacados */
+/* Apenas campos digitáveis destacados */
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  padding: 0.5em;
+  background: #fff;
+  font-size: 1rem;
+  box-sizing: border-box;
+  margin-bottom: 1em;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+  border-color: #2a9440;
+  box-shadow: 0 0 0 2px #b2f2bb;
+}
+
+/* Campos não digitáveis (select, button) com estilo mais simples */
+select {
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  padding: 0.4em;
+  background: #fff;
+  font-size: 1rem;
+  margin-bottom: 1em;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+select:focus {
+  border-color: #2a9440;
+}
+
+/* ...código existente... */

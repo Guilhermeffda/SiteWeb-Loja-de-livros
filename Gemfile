@@ -33,7 +33,14 @@ gem "solid_cable"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# Faz o Rails usar o ActiveModel::Serializers para serializar objetos em XML
+# Isso é útil quando você precisa gerar respostas XML em vez de JSON.
 gem 'activemodel-serializers-xml'
+
+
+# Faz a gente poder criptografar senhas de usuários
+# e autenticar usuários de forma segura.
+gem "bcrypt", "~> 3.1.7"
 
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem "kamal", require: false
