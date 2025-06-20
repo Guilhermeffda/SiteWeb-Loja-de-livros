@@ -1,3 +1,4 @@
+
 en:
   layouts:
     application:
@@ -43,12 +44,32 @@ en:
         "Credit card": "Credit Card"
         "Purchase order": "Purchase Order"
       check:
-        routing_number: "Routing #"
-        account_number: "Account #"
+        routing_number: "Routing number"
+        account_number: "Account number"
       cc:
-        cc_number: "CC #"
+        cc_number: "CC number"
         expiration_date: "Expiry"
       po:
-        po_number: "PO #"
+        po_number: "PO number"
+
+  activerecord:
+    errors:
+      messages:
+        inclusion: "is not included in the list"
+        blank: "can't be blank"
+      template:
+        body: "There were problems with the following fields:"
+        header:
+          one: "1 error prevented this %{model} from being saved"
+          other: "%{count} errors prevented this %{model} from being saved"
+
+    models:
+      order: "order"
+    attributes:
+      order:
+        address: "Address"
+        name: "Name"
+        email: "E-mail"
+        pay_type: "Pay with"
 
   thanks: "Thank you for your order"

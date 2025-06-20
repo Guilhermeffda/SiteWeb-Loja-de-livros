@@ -2,9 +2,10 @@
 
 <fieldset data-payment-target="additionalFields" data-type="Purchase order">
   <div class="my-5">
-    <%= form.label t('.po_number') %>
+    <%= form.label :po_number, t('orders.new.po.po_number') %>
     <%= form.text_field :po_number, id: 'order_po_number', class: "input-field" %>
   </div>
 </fieldset>
+
 
 

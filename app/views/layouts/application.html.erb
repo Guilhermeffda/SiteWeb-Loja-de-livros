@@ -27,6 +27,16 @@
 
   <body>
   <header class="bg-green-700">
+
+    <aside data-controller="locale">
+    <%= form_tag store_index_path, class: 'locale' do %>
+        <%= select_tag(:set_locale, options_for_select(LANGUAGES, I18n.locale.to_s),
+            onchange: "this.form.submit()",
+            class: "bg-white text-black border rounded px-2 py-1") %>
+        <%= submit_tag 'submit', data: { 'locale-target' => 'submit' } %>
+      <% end %>
+    </aside>
+    
     <%= image_tag 'logo.svg', alt: 'The Pragmatic Bookshelf' %>
     <h1><%= @page_title %></h1>
   </header>
