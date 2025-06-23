@@ -1,8 +1,8 @@
 
 
 Rails.application.routes.draw do
-
   get 'admin' => 'admin#index'
+  
   controller :sessions do 
     get 'login' => :new
     post 'login' => :create
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get "sessions/create"
   get "sessions/destroy"
+  
   resources :users
   resources :products 
 
@@ -21,4 +22,6 @@ Rails.application.routes.draw do
     root 'store#index', as: 'store_index', via: :all
   end
 
+  mount ActionMailbox::Engine => "/rails/action_mailbox"
 end
+
