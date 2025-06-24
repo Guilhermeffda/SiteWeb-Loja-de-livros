@@ -25,7 +25,10 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create order" do
-    assert_difference("Order.count") do
+  # Adiciona um item no carrinho para não estar vazio
+  post line_items_url, params: { product_id: products(:ruby).id }
+
+  assert_difference("Order.count") do
       post orders_url, params: { order: { 
         address: @order.address,
         email: @order.email,
@@ -36,6 +39,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to store_index_url(locale: 'en')
   end
+
 
   test "should show order" do
     get order_url(@order)

@@ -1,3 +1,10 @@
-Order#received
+Pedido recebido
 
-<%= @greeting %>, find me in app/views/order_mailer/received.text.erb
+<%= @order.name %>
+
+Obrigado por comprar na Pragmatic Store.
+
+Itens:
+<% @order.line_items.each do |item| %>
+  <%= "#{item.quantity} x #{item.product.title}" %>
+<% end %>
