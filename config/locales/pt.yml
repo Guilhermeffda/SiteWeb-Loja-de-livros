@@ -73,3 +73,11 @@ pt:
         pay_type: "Forma de pagamento"
 
   thanks: "Obrigado pelo seu pedido"
+
+  errors:
+    template:
+      body: "Há problemas com os seguintes campos:"
+      header:
+        one: "1 erro impediu que este %{model} fosse salvo"
+        other: "%{count} erros impediram que este %{model} fosse salvo"
+

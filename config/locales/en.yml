@@ -73,3 +73,10 @@ en:
         pay_type: "Pay with"
 
   thanks: "Thank you for your order"
+
+  errors:
+    template:
+      body: "There were problems with the following fields:"
+      header:
+        one: "1 error prevented this %{model} from being saved"
+        other: "%{count} errors prevented this %{model} from being saved"
